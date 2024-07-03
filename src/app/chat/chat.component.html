@@ -1,0 +1,12 @@
+<!-- src/app/chat/chat.component.html -->
+<div class="chat-container">
+  <div class="chat-history">
+    <div *ngFor="let message of chatHistory" [ngClass]="{'human-message': message.role === 'human', 'ai-message': message.role === 'ai'}">
+      {{ message.content }}
+    </div>
+  </div>
+  <div class="chat-input">
+    <input [(ngModel)]="latestMessage" placeholder="Scrivi un messaggio..." />
+    <button (click)="sendMessage()">Invia</button>
+  </div>
+</div>
