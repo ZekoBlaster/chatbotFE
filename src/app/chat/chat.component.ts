@@ -10,7 +10,6 @@ import { ChatbotService } from '../chatbot.service';
 export class ChatComponent {
   chatHistory: any[] = [];
   latestMessage: string = '';
-  responseMessage: string = '';
 
   constructor(private chatbotService: ChatbotService) {}
 

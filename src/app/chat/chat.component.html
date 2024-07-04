@@ -1,8 +1,17 @@
-<!-- src/app/chat/chat.component.html -->
 <div class="chat-container">
   <div class="chat-history">
     <div *ngFor="let message of chatHistory" [ngClass]="{'human-message': message.role === 'human', 'ai-message': message.role === 'ai'}">
-      {{ message.content }}
+      <ng-container *ngIf="message.role === 'ai'; else humanMessage">
+        <div class="message-content">
+          {{ message.content }}
+          <img src="assets/chatbot-avatar.png" alt="Chatbot Avatar" class="avatar">
+        </div>
+      </ng-container>
+      <ng-template #humanMessage>
+        <div class="message-content">
+          {{ message.content }}
+        </div>
+      </ng-template>
     </div>
   </div>
   <div class="chat-input">
